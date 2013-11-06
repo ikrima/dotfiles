@@ -26,6 +26,10 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
+if has("gui_macvim")
+    let macvim_hig_shift_movement = 1
+endif
+
 " Respect modeline in files
 set modeline
 set modelines=4

@@ -13,10 +13,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MathBook Pro"
-sudo scutil --set HostName "MathBook Pro"
-sudo scutil --set LocalHostName "MathBook-Pro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
+sudo scutil --set ComputerName "ikrima-MBP"
+sudo scutil --set HostName "ikrima-MBP"
+sudo scutil --set LocalHostName "ikrima-MBP"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ikrima-MBP"
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
@@ -85,7 +85,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
-systemsetup -setcomputersleep Off > /dev/null
+systemsetup -setcomputersleep 15 > /dev/null
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -100,10 +100,10 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Trackpad: swipe between pages with three fingers
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
@@ -267,9 +267,9 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 chflags nohidden ~/Library
 
 # Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/check.icns
-[ -e "$file" ] && mv -f "$file" "$file.bak"
-unset file
+# file=/Applications/Dropbox.app/Contents/Resources/check.icns
+# [ -e "$file" ] && mv -f "$file" "$file.bak"
+# unset file
 
 ###############################################################################
 # Dock & hot corners                                                          #
@@ -526,6 +526,41 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+
+###############################################################################
+# ikrima's custom settings                                                    #
+###############################################################################
+
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
+
+# Disable full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Require password delay of 10s after sleep or screen saver begins
+defaults write com.apple.screensaver askForPasswordDelay -int 10
+
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+
+defaults write com.apple.finder QuitMenuItem -bool false
+
+defaults write com.apple.finder DisableAllAnimations -bool false
+
+defaults write com.apple.screencapture disable-shadow -bool false
+
+defaults write com.apple.dock launchanim -bool true
+
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
+
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool true
+
+defaults write com.apple.finder EmptyTrashSecurely -bool false
+
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
+defaults write com.apple.dashboard devmode -bool false
+
+
 
 ###############################################################################
 # Kill affected applications                                                  #
