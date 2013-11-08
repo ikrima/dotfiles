@@ -212,14 +212,4 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-#Project Specific
-Assembly-CSharp-Editor-firstpass-vs.csproj
-Assembly-CSharp-Editor-firstpass.csproj
-Assembly-CSharp-Editor-vs.csproj
-Assembly-CSharp-Editor.csproj
-Assembly-CSharp-firstpass-vs.csproj
-Assembly-CSharp-firstpass.csproj
-Assembly-CSharp-vs.csproj
-Assembly-CSharp.csproj
-BatCave-csharp.sln
-BatCave.sln
+#Unity Project Specific
